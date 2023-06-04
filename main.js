@@ -55,3 +55,107 @@ function longestSlideDown(pyramid) {
 	// The top element of the dp array will contain the maximum slide down sum
 	return dp[0][0];
 }
+
+function numberToEnglish(number) {
+	if (!Number.isInteger(number) || number < 0 || number > 99999) {
+		return '';
+	}
+
+	if (number === 0) {
+		return 'zero';
+	}
+
+	const units = [
+		'',
+		'one',
+		'two',
+		'three',
+		'four',
+		'five',
+		'six',
+		'seven',
+		'eight',
+		'nine',
+		'ten',
+		'eleven',
+		'twelve',
+		'thirteen',
+		'fourteen',
+		'fifteen',
+		'sixteen',
+		'seventeen',
+		'eighteen',
+		'nineteen',
+	];
+
+	const tens = [
+		'',
+		'',
+		'twenty',
+		'thirty',
+		'forty',
+		'fifty',
+		'sixty',
+		'seventy',
+		'eighty',
+		'ninety',
+	];
+
+	const thousands = ['', 'thousand', 'million', 'billion', 'trillion'];
+
+	function convertThreeDigit(num) {
+		let result = '';
+
+		const hundreds = Math.floor(num / 100);
+		const tensAndOnes = num % 100;
+
+		if (hundreds > 0) {
+			result += `${units[hundreds]} hundred`;
+		}
+
+		if (tensAndOnes > 0) {
+			if (result !== '') {
+				result += ' ';
+			}
+
+			if (tensAndOnes < 20) {
+				result += units[tensAndOnes];
+			} else {
+				const tensDigit = Math.floor(tensAndOnes / 10);
+				const onesDigit = tensAndOnes % 10;
+				result += `${tens[tensDigit]}`;
+
+				if (onesDigit > 0) {
+					result += ` ${units[onesDigit]}`;
+				}
+			}
+		}
+
+		return result;
+	}
+
+	const numString = number.toString();
+	const numDigits = numString.length;
+	let result = '';
+	let groupCount = 0;
+
+	for (let i = numDigits; i > 0; i -= 3) {
+		const startIndex = Math.max(0, i - 3);
+		const endIndex = i;
+		const group = parseInt(numString.slice(startIndex, endIndex));
+
+		if (group > 0) {
+			const groupResult = convertThreeDigit(group);
+
+			if (groupCount > 0 && groupResult !== '') {
+				result = `${groupResult} ${thousands[groupCount]} ${result}`;
+			} else {
+				result = `${groupResult} ${result}`;
+			}
+		}
+
+		groupCount++;
+	}
+
+	return result.trim();
+}

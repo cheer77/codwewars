@@ -16,7 +16,6 @@ function openClose(e) {
 myBtn.addEventListener('click', openClose);
 myBtn.addEventListener('click', openClose);
 
-// Collatz
 function collatz(n) {
 	let sequence = [n]; // Initialize the sequence array with the starting number
 

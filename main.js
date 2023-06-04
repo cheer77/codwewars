@@ -158,5 +158,3 @@ function numberToEnglish(number) {
 
 	return result.trim();
 }
-
-console.log('test');

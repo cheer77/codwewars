@@ -158,3 +158,19 @@ function numberToEnglish(number) {
 
 	return result.trim();
 }
+
+class Rectangle {
+	constructor(width, height) {
+		this.width = width;
+		this.height = height;
+	}
+
+	calc() {
+		return this.width * this.height;
+	}
+}
+
+const myParam = new Rectangle(5, 6);
+const result = myParam.calc();
+
+console.log(result);

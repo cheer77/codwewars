@@ -1,52 +1,40 @@
-* {
-	margin: 0;
-	padding: 0;
-}
-h1 {
-	text-align: center;
-	margin-top: 50px;
-}
-.incr {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 50vh;
-}
-.incr__inner {
-	display: flex;
-}
-.incr__plus {
-	width: 70px;
-	min-height: 30px;
-	background-color: #5d5d5d;
-	color: #fff;
-	border: none;
+/* Style the button that is used to open and close the collapsible content */
+.collapsible,
+.collapsible2 {
+	background-color: #eee;
+	color: #444;
 	cursor: pointer;
-	transition: all 0.3s ease-in-out;
-
-	&:hover {
-		background-color: #878787;
-		transition: all 0.3s ease-in-out;
-	}
-}
-.incr__total {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 30px;
-	width: 50px;
-}
-.incr__minus {
-	width: 70px;
-	min-height: 30px;
-	background-color: #5d5d5d;
-	color: #fff;
+	padding: 18px;
+	width: 100%;
 	border: none;
-	cursor: pointer;
-	transition: all 0.3s ease-in-out;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+}
 
-	&:hover {
-		background-color: #878787;
-		transition: all 0.3s ease-in-out;
-	}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.collapsible:hover,
+.collapsible2:hover {
+	background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+	padding: 0 18px;
+	display: none;
+	overflow: hidden;
+	background-color: #f1f1f1;
+}
+.collapsible:after,
+.collapsible2:after {
+	content: '\02795'; /* Unicode character for "plus" sign (+) */
+	font-size: 13px;
+	color: white;
+	float: right;
+	margin-left: 5px;
+}
+
+.active:after {
+	content: '\2796'; /* Unicode character for "minus" sign (-) */
 }

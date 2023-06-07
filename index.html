@@ -6,48 +6,43 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
 		<title>Objects</title>
-
-		<style>
-			:root {
-				color: #222;
-				font-family: Arial;
-			}
-
-			button {
-				padding: 0.5rem 1rem;
-				background-color: #eee;
-				border: none;
-				border-radius: 5px;
-			}
-
-			button:hover {
-				background-color: #ddd;
-			}
-
-			div {
-				text-align: center;
-				padding: 1rem;
-				border: 1px solid magenta;
-			}
-			.closed {
-				display: none;
-			}
-		</style>
 	</head>
 
 	<body>
-		<h1>Инкремент / Декремент</h1>
-
-		<div class="incr">
-			<div class="incr__inner">
-				<button class="incr__minus">-</button>
-				<p class="incr__total">0</p>
-				<button class="incr__plus">+</button>
-			</div>
+		<button type="button" class="collapsible">Open Collapsible</button>
+		<div class="content">
+			<p>Lorem ipsum...</p>
 		</div>
 
-		<button id="myBtn">Toggle spoiler</button>
+		<button type="button" class="collapsible">Open Collapsible</button>
+		<div class="content">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, magni.</p>
+		</div>
 
-		<script src="main.js"></script>
+		<button type="button" class="collapsible">Open Collapsible</button>
+		<div class="content">
+			<p>Lorem ipsum...</p>
+		</div>
+
+		<hr />
+		<button type="button" class="collapsible2">Open Collapsible</button>
+		<div class="content">
+			<p>Lorem ipsum...</p>
+		</div>
+
+		<button type="button" class="collapsible2">Open Collapsible</button>
+		<div class="content">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, magni.</p>
+		</div>
+
+		<button type="button" class="collapsible2">Open Collapsible</button>
+		<div class="content">
+			<p>Lorem ipsum...</p>
+		</div>
+
+		<!-- перепишите collapser.js в класс,
+		 который в конструктор принимает css-класс коллапсеров
+		 в классе должны быть внутренние методы по добавлению обработчиков клика -->
+		<script src="./collapser.js"></script>
 	</body>
 </html>
